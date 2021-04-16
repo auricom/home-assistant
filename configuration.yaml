@@ -1,0 +1,32 @@
+homeassistant:
+  legacy_templates: false
+  name: Home
+  latitude: !env_var HASS_SECRET_LATITUDE
+  longitude: !env_var HASS_SECRET_LONGITUDE
+  elevation: !env_var HASS_SECRET_ELEVATION
+  unit_system: metric
+  time_zone: Europe/Paris
+
+  
+  internal_url: "http://localhost:8123"
+  external_url: !env_var HASS_SECRET_URL
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+recorder:
+  db_url: !env_var HASS_SECRET_DB_URL
+
+mqtt:
+  broker: vernemq
+  port: 1883
+  discovery: true

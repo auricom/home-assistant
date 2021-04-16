@@ -1,0 +1,9 @@
+.cloud
+.storage
+.vscode
+deps
+image
+lost+found
+.HA_VERSION
+*.db
+*.log
