@@ -31,3 +31,9 @@ mqtt:
   discovery: true
   username: !env_var HASS_SECRET_MQTT_USERNAME
   password: !env_var HASS_SECRET_MQTT_PASSWORD
+
+prometheus:
+  namespace: hass
+  filter:
+    include_domains:
+      - sensor
