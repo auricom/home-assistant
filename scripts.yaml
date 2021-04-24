@@ -6,9 +6,9 @@ home_cinema_power_on:
   alias: Home Cinema Power ON
   variables:
     entities:
-    - switch.avr_power_plug
-    - switch.subwoofer_power_plug
-    - switch.projector_power_plug
+    - switch.power_plug_avr
+    - switch.power_plug_projector
+    - switch.power_plug_subwoofer
   sequence:
   - service: switch.turn_on
     data:
@@ -18,9 +18,9 @@ home_cinema_power_off:
   alias: Home Cinema Power OFF
   variables:
     entities:
-    - switch.avr_power_plug
-    - switch.subwoofer_power_plug
-    - switch.projector_power_plug
+    - switch.power_plug_avr
+    - switch.power_plug_projector
+    - switch.power_plug_subwoofer
   sequence:
   - service: switch.turn_off
     data:
