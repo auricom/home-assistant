@@ -29,6 +29,8 @@ mqtt:
   broker: vernemq
   port: 1883
   discovery: true
+  username: !env_var HASS_SECRET_MQTT_USERNAME
+  password: !env_var HASS_SECRET_MQTT_PASSWORD
 
 input_boolean:
   theater_mode:
