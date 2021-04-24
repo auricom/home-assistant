@@ -24,6 +24,7 @@ scene: !include scenes.yaml
 
 recorder:
   db_url: !env_var HASS_SECRET_DB_URL
+  purge_keep_days: 90
 
 mqtt:
   broker: vernemq
