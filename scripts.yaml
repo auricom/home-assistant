@@ -1,1 +1,69 @@
-[]
+###############
+# Home Cinema #
+###############
+
+home_cinema_power_on:
+  alias: Home Cinema Power ON
+  variables:
+    entities:
+    - switch.avr_power_plug
+    - switch.subwoofer_power_plug
+    - switch.projector_power_plug
+  sequence:
+  - service: switch.turn_on
+    data:
+      entity_id: "{{ entities }}"
+
+home_cinema_power_off:
+  alias: Home Cinema Power OFF
+  variables:
+    entities:
+    - switch.avr_power_plug
+    - switch.subwoofer_power_plug
+    - switch.projector_power_plug
+  sequence:
+  - service: switch.turn_off
+    data:
+      entity_id: "{{ entities }}"
+
+home_cinema_lights_off:
+  alias: Home Cinema Lights OFF
+  sequence:
+  - service: light.turn_off
+    data:
+      entity_id: group.living_room
+
+home_cinema_lights_on:
+  alias: Home Cinema Lights ON
+  variables:
+    entities_on:
+      - light.hue_ambiance_panel_5
+      - light.hue_ambiance_panel_6
+    entities_off:
+      - light.hue_color_lamp_1
+      - light.hue_color_lamp_2
+      - light.hue_white_lamp_1
+      - light.hue_white_lamp_2
+    brightness: 145
+    color_temp: 443
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: "{{ entities_on }}"
+      brightness: "{{ brightness }}"
+      color_temp: "{{ color_temp }}"
+  - service: light.turn_off
+    data:
+      entity_id: "{{ entities_off }}"
+
+theater_mode_no_lights:
+  alias: Theater Mode (No Lights)
+  sequence:
+  - service: script.home_cinema_lights_off
+  - service: script.home_cinema_power_on
+
+theater_mode_lights:
+  alias: Theater Mode (Lights)
+  sequence:
+  - service: script.home_cinema_lights_on
+  - service: script.home_cinema_power_on
