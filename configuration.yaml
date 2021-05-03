@@ -38,3 +38,15 @@ prometheus:
   filter:
     include_domains:
       - sensor
+ 
+#rflink:
+#  port: /dev/serial/by-id/usb-2341_0042-if00/
+
+lovelace:
+  mode: yaml
+  resources:
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      type: module
+

@@ -1,0 +1,105 @@
+---
+title: Dashboard
+views:
+  - title: Home Cinema
+    cards:
+      - type: custom:button-card
+        name: Theater Mode (No Lights)
+        icon: mdi:theater
+        color: rgb(28, 128, 199)
+        show_state: false
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id:
+              - script.theater_mode_no_lights
+              - script.home_cinema_power_on
+      - type: custom:button-card
+        name: Theater Mode (Lights)
+        icon: mdi:theater
+        color: rgb(255, 216, 0)
+        show_state: false
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id:
+              - script.theater_mode_lights
+              - script.home_cinema_power_on
+      - type: custom:button-card
+        name: Home Cinema Power OFF
+        icon: mdi:projector
+        color: rgb(67, 73, 75)
+        show_state: false
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.home_cinema_power_off
+  - title: Sensors
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Bedroom
+            line_color: var(--accent-color)
+            aggregate_func: last
+            hour24: true
+            entities:
+            - sensor.temperature_bedroom_temperature
+          - type: custom:mini-graph-card
+            name: Bedroom
+            line_color: blue
+            aggregate_func: last
+            hour24: true
+            entities:
+            - sensor.temperature_bedroom_humidity
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Living room
+            line_color: var(--accent-color)
+            aggregate_func: last
+            hour24: true
+            entities:
+            - sensor.temperature_living_room_temperature
+          - type: custom:mini-graph-card
+            name: Living room
+            line_color: blue
+            aggregate_func: last
+            hour24: true
+            entities:
+            - sensor.temperature_living_room_humidity
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Office
+            line_color: var(--accent-color)
+            aggregate_func: last
+            hour24: true
+            entities:
+            - sensor.temperature_office_temperature
+          - type: custom:mini-graph-card
+            name: Office
+            line_color: blue
+            aggregate_func: last
+            hour24: true
+            entities:
+            - sensor.temperature_office_humidity
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Servers
+            line_color: var(--accent-color)
+            aggregate_func: last
+            hour24: true
+            entities:
+            - sensor.temperature_servers_temperature
+          - type: custom:mini-graph-card
+            name: Servers
+            line_color: blue
+            aggregate_func: last
+            hour24: true
+            entities:
+            - sensor.temperature_servers_humidity
