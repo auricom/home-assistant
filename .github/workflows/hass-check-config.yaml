@@ -1,0 +1,28 @@
+name: HASS check-config
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HASS_SECRET_DB_URL: postgresql://hass:hass@postgresql/hass
+      HASS_SECRET_ELEVATION: 00
+      HASS_SECRET_LATITUDE: 000.0000000
+      HASS_SECRET_LONGITUDE: 000.0000000
+      HASS_SECRET_MQTT_PASSWORD: password
+      HASS_SECRET_MQTT_USERNAME: username
+      HASS_SECRET_URL: https://hass.homelab
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install homeassistant colorlog python-dateutil sqlalchemy mutagen prometheus_client gtts
+    - name: HASS check config
+      run: |
+        hass -c ./ --script check_config --info all
