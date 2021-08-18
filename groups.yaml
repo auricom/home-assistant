@@ -1,8 +1,8 @@
 living_room:
   name: Living Room
   entities:
-    - light.hue_ambiance_panel_5
-    - light.hue_ambiance_panel_6
+    - light.hue_ambiance_panel_living_room_1
+    - light.hue_ambiance_panel_living_room_2
     - light.hue_color_lamp_1
     - light.hue_color_lamp_2
     - light.hue_white_lamp_1

@@ -10,6 +10,16 @@ homeassistant:
   internal_url: "http://localhost:8123"
   external_url: !env_var HASS_SECRET_URL
 
+http:
+  server_host: 0.0.0.0
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+  use_x_forwarded_for: true
+  trusted_proxies:
+  - 192.168.8.0/22
+  - 10.10.0.0/24
+  - 10.69.0.0/16
+
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
@@ -27,21 +37,18 @@ recorder:
   purge_keep_days: 90
 
 mqtt:
-  broker: vernemq
-  port: 1883
   discovery: true
+  broker: emqx
+  port: 1883
   username: !env_var HASS_SECRET_MQTT_USERNAME
   password: !env_var HASS_SECRET_MQTT_PASSWORD
-
+    
 prometheus:
   namespace: hass
   filter:
     include_domains:
       - sensor
  
-#rflink:
-#  port: /dev/serial/by-id/usb-2341_0042-if00/
-
 lovelace:
   mode: yaml
   resources:
@@ -50,3 +57,34 @@ lovelace:
     - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
       type: module
 
+rflink:
+  port: "/dev/ttyUSB0"
+
+#logger:
+#  default: error
+#  logs:
+#    rflink: debug
+#    homeassistant.components.rflink: debug
+
+cover:
+ - platform: rflink
+   devices:
+     RTS_0A0A0A_0:
+       name: blind_office_1
+ - platform: rflink
+   devices:
+     RTS_0B0B0B_0:
+       name: blind_office_2
+ - platform: rflink
+   devices:
+     RTS_0C0C0C_0:
+       name: blind_living_room_1
+ - platform: rflink
+   devices:
+     RTS_0D0D0D_0:
+       name: blind_living_room_2
+ - platform: group
+   name: blinds_living_room
+   entities:
+     - cover.blind_living_room_1
+     - cover.blind_living_room_2

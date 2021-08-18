@@ -37,15 +37,15 @@ home_cinema_lights_on:
   alias: Home Cinema Lights ON
   variables:
     entities_on:
-      - light.hue_ambiance_panel_5
-      - light.hue_ambiance_panel_6
+      - light.hue_ambiance_panel_living_room_1
+      - light.hue_ambiance_panel_living_room_2
     entities_off:
       - light.hue_color_lamp_1
       - light.hue_color_lamp_2
       - light.hue_white_lamp_1
       - light.hue_white_lamp_2
-    brightness: 145
-    color_temp: 443
+    brightness: 70
+    color_temp: 310
   sequence:
   - service: light.turn_on
     data:

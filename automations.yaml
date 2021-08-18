@@ -1,1 +1,12 @@
-[]
+# Force Publish HA Birth Message
+- id: zigbee_publish_birth_message
+  alias: Zigbee Publish MQTT Birth Message
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - delay: '10'
+    - service: mqtt.publish
+      data:
+        topic: 'zigbee2mqtt/bridge/state'
+        payload: 'online'
