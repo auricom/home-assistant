@@ -31,7 +31,7 @@ home_cinema_lights_off:
   sequence:
   - service: light.turn_off
     data:
-      entity_id: group.living_room
+      entity_id: group.lights_living_room
 
 home_cinema_lights_on:
   alias: Home Cinema Lights ON
@@ -61,9 +61,27 @@ theater_mode_no_lights:
   sequence:
   - service: script.home_cinema_lights_off
   - service: script.home_cinema_power_on
+  - service: script.home_cinema_blinds_close
 
 theater_mode_lights:
   alias: Theater Mode (Lights)
   sequence:
   - service: script.home_cinema_lights_on
   - service: script.home_cinema_power_on
+  - service: script.home_cinema_blinds_close
+
+home_cinema_blinds_close:
+  alias: Home Cinema Blinds Close
+  sequence:
+  - service: cover.close_cover
+    data:
+      entity_id:
+        - group.blinds_living_room
+
+home_cinema_blinds_open:
+  alias: Home Cinema Blinds Open
+  sequence:
+  - service: cover.open_cover
+    data:
+      entity_id:
+        - group.blinds_living_room

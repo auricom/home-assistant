@@ -1,5 +1,5 @@
-living_room:
-  name: Living Room
+lights_living_room:
+  name: Lights - Living Room
   entities:
     - light.hue_ambiance_panel_living_room_1
     - light.hue_ambiance_panel_living_room_2
@@ -7,3 +7,15 @@ living_room:
     - light.hue_color_lamp_2
     - light.hue_white_lamp_1
     - light.hue_white_lamp_2
+
+blinds_living_room:
+  name: Blinds - Living room
+  entities:
+    - cover.blind_living_room_1
+    - cover.blind_living_room_2
+
+blinds_office:
+  name: Blinds - Office
+  entities:
+    # - cover.blind_office_1
+    - cover.blind_office_2

@@ -42,15 +42,12 @@ views:
       - type: entities
         id: card_blinds
         entities:
-          # - entity: cover.blind_office_1
-          #   name: Office 1
+          - entity: cover.blind_living_room_1
+            name: Living Room - Left
+          - entity: cover.blind_living_room_2
+            name: Living Room - Right
           - entity: cover.blind_office_2
             name: Office
-          - entity: cover.blind_living_room_1
-            name: Living Room 1
-          - entity: cover.blind_living_room_2
-            name: Living Room 2
-
   - title: Sensors
     cards:
       - type: horizontal-stack

@@ -1,1 +1,1 @@
-# home-assistant
+<h1 align="center">My home-assistant configuration 👋</h1>

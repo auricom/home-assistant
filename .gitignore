@@ -6,4 +6,4 @@ image
 lost+found
 .HA_VERSION
 *.db
-*.log
+*.log*

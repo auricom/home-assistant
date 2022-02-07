@@ -6,7 +6,6 @@ homeassistant:
   elevation: !env_var HASS_SECRET_ELEVATION
   unit_system: metric
   time_zone: Europe/Paris
-
   internal_url: "http://localhost:8123"
   external_url: !env_var HASS_SECRET_URL
 
@@ -60,11 +59,11 @@ lovelace:
 rflink:
   port: "/dev/ttyUSB0"
 
-#logger:
-#  default: error
-#  logs:
-#    rflink: debug
-#    homeassistant.components.rflink: debug
+# logger:
+#   default: error
+#   logs:
+#     rflink: debug
+#     homeassistant.components.rflink: debug
 
 cover:
  - platform: rflink
