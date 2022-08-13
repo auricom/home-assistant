@@ -17,7 +17,7 @@ http:
   trusted_proxies:
   - 192.168.8.0/22
   - 10.10.0.0/24
-  - 10.69.0.0/16
+  - 10.95.0.0/16
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
