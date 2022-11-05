@@ -34,14 +34,7 @@ scene: !include scenes.yaml
 recorder:
   db_url: !env_var HASS_SECRET_DB_URL
   purge_keep_days: 90
-
-mqtt:
-  discovery: true
-  broker: emqx
-  port: 1883
-  username: !env_var HASS_SECRET_MQTT_USERNAME
-  password: !env_var HASS_SECRET_MQTT_PASSWORD
-    
+   
 prometheus:
   namespace: hass
   filter:

@@ -1,5 +1,7 @@
+.cache
 .cloud
 .storage
+.ssh
 .vscode
 deps
 image
