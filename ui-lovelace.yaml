@@ -98,19 +98,19 @@ views:
             hour24: true
             entities:
             - sensor.temperature_office_humidity
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            name: Servers
-            line_color: var(--accent-color)
-            aggregate_func: last
-            hour24: true
-            entities:
-            - sensor.temperature_servers_temperature
-          - type: custom:mini-graph-card
-            name: Servers
-            line_color: blue
-            aggregate_func: last
-            hour24: true
-            entities:
-            - sensor.temperature_servers_humidity
+      # - type: horizontal-stack
+      #   cards:
+      #     - type: custom:mini-graph-card
+      #       name: Servers
+      #       line_color: var(--accent-color)
+      #       aggregate_func: last
+      #       hour24: true
+      #       entities:
+      #       - sensor.temperature_servers_temperature
+      #     - type: custom:mini-graph-card
+      #       name: Servers
+      #       line_color: blue
+      #       aggregate_func: last
+      #       hour24: true
+      #       entities:
+      #       - sensor.temperature_servers_humidity
