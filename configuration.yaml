@@ -6,6 +6,7 @@ homeassistant:
   elevation: !env_var HASS_SECRET_ELEVATION
   unit_system: metric
   time_zone: Europe/Paris
+  country: FR
   internal_url: "http://localhost:8123"
   external_url: !env_var HASS_SECRET_URL
 
