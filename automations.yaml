@@ -1,38 +1,73 @@
-# Force Publish HA Birth Message
 - id: zigbee_publish_birth_message
   alias: Zigbee Publish MQTT Birth Message
   trigger:
     platform: homeassistant
     event: start
   action:
-    - delay: '10'
-    - service: mqtt.publish
-      data:
-        topic: 'zigbee2mqtt/bridge/state'
-        payload: 'online'
-
-# Close blinds at night
-- alias: "Close covers at night"
+  - delay: '10'
+  - service: mqtt.publish
+    data:
+      topic: zigbee2mqtt/bridge/state
+      payload: online
+- alias: Close covers at night
   trigger:
-    - platform: sun
-      event: sunset
-      offset: "+00:30:00"
+  - platform: sun
+    event: sunset
+    offset: "+00:30:00"
   action:
   - service: cover.close_cover
     data:
       entity_id:
-        - group.blinds_living_room
-        - group.blinds_office
-        
-# Open blinds in the morning
-- alias: "Open blinds in the morning"
+      - group.blinds_living_room
+      - group.blinds_office
+  id: db57bfca96a84ccc897cd0340728f96b
+- alias: Open blinds in the morning
   trigger:
-    - platform: sun
-      event: sunrise
-      offset: "-00:30:00"
+  - platform: sun
+    event: sunrise
+    offset: "00:00:00"
   action:
   - service: cover.open_cover
     data:
       entity_id:
-        - group.blinds_living_room
-        - group.blinds_office
+      - group.blinds_living_room
+      - group.blinds_office
+  id: 13bdb93561e7494197f3072b858f1ba5
+
+## Babybuddy
+- id: '1698511303980'
+  alias: Log Diaper Change - Eleonore - Wet
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 1a0fdc9f4e5fcc3af1c685a9b2f27a08
+    type: action
+    subtype: single
+    discovery_id: 0x00158d0009687bcb action_single
+  condition: []
+  action:
+  - service: babybuddy.add_diaper_change
+    data:
+      type: Wet
+    target:
+      entity_id: sensor.baby_eleonore
+  mode: single
+- id: '1698511383081'
+  alias: Log Diaper Change - Eleonore - Solid
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 1a0fdc9f4e5fcc3af1c685a9b2f27a08
+    type: action
+    subtype: double
+    discovery_id: 0x00158d0009687bcb action_double
+  condition: []
+  action:
+  - service: babybuddy.add_diaper_change
+    data:
+      type: Solid
+    target:
+      entity_id: sensor.baby_eleonore
+  mode: single

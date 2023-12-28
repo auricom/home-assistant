@@ -1,0 +1,474 @@
+add_bmi:
+  name: Add BMI
+  description: Adds a BMI entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: sensor
+      device_class: babybuddy_child
+  fields:
+    bmi:
+      name: BMI
+      description: BMI value
+      example: 5.0
+      required: true
+      selector:
+        number:
+          min: 0.1
+          max: 100.0
+          step: 0.1
+          mode: box
+    date:
+      name: BMI date
+      description: BMI date in YYYY-MM-DD format
+      example: "2022-06-20"
+      selector:
+        text:
+    notes:
+      name: BMI notes
+      description: BMI notes
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      selector:
+        text:
+          multiline: true
+
+add_child:
+  name: Add child
+  description: Add a child to Baby Buddy
+  fields:
+    first_name:
+      name: First Name
+      description: Child's first name
+      example: Little
+      required: true
+      selector:
+        text:
+    last_name:
+      name: Last Name
+      description: Child's last name
+      example: Girl
+      required: true
+      selector:
+        text:
+    birth_date:
+      name: Birth Date
+      description: Child's birth date in YYYY-MM-DD format
+      example: "2022-06-20"
+      required: true
+      selector:
+        text:
+
+add_diaper_change:
+  name: Add diaper change
+  description: Adds a diaper change entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: sensor
+      device_class: babybuddy_child
+  fields:
+    time:
+      name: Change time
+      description: Change time
+      example: "15:00:00"
+      selector:
+        time:
+    type:
+      name: Diaper type
+      description: Type of diaper change
+      example: Wet
+      selector:
+        select:
+          options:
+            - Wet
+            - Solid
+            - Wet and Solid
+    color:
+      name: Diaper color
+      description: Diaper color
+      example: Black
+      selector:
+        select:
+          options:
+            - Black
+            - Brown
+            - Green
+            - Yellow
+    amount:
+      name: Diaper change amount
+      description: Diaper change amount
+      example: 5
+      selector:
+        number:
+          min: 0.0
+          max: 500.0
+          step: 0.1
+          mode: box
+    notes:
+      name: Change notes
+      description: Change notes
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      selector:
+        text:
+          multiline: true
+
+add_feeding:
+  name: Add feeding
+  description: Adds a feeding entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: switch
+  fields:
+    timer:
+      name: Use timer
+      description: Use active timer to assign child/start/end
+      example: false
+      selector:
+        boolean:
+    start:
+      name: Feeding start time
+      description: Feeding start time
+      example: "15:00:00"
+      selector:
+        time:
+    end:
+      name: Feeding end time
+      description: Feeding end time
+      example: "15:10:00"
+      selector:
+        time:
+    type:
+      name: Feeding type
+      description: Feeding type
+      example: Breast milk
+      required: true
+      selector:
+        select:
+          options:
+            - Breast milk
+            - Formula
+            - Fortified breast milk
+            - Solid food
+    method:
+      name: Feeding method
+      description: Feeding method
+      example: Bottle
+      required: true
+      selector:
+        select:
+          options:
+            - Bottle
+            - Left breast
+            - Right breast
+            - Both breasts
+            - Parent fed
+            - Self fed
+    amount:
+      name: Feeding amount
+      description: Feeding amount in number format
+      example: 1
+      selector:
+        number:
+          min: 0.0
+          max: 500.0
+          step: 0.1
+          mode: box
+    notes:
+      name: Feeding notes
+      description: Feeding notes
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      selector:
+        text:
+          multiline: true
+
+add_head_circumference:
+  name: Add Head Circumference
+  description: Adds a head circumference entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: sensor
+      device_class: babybuddy_child
+  fields:
+    head_circumference:
+      name: Head Circumference
+      description: Head circumference value
+      example: 5.0
+      required: true
+      selector:
+        number:
+          min: 0.1
+          max: 500.0
+          step: 0.1
+          mode: box
+    date:
+      name: Head circumference date
+      description: Head circumference date in YYYY-MM-DD format
+      example: "2022-06-20"
+      selector:
+        text:
+    notes:
+      name: Head circumference notes
+      description: Head circumference notes
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      selector:
+        text:
+          multiline: true
+
+add_height:
+  name: Add Height
+  description: Adds a height entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: sensor
+      device_class: babybuddy_child
+  fields:
+    height:
+      name: Height
+      description: Height value
+      example: 5.0
+      required: true
+      selector:
+        number:
+          min: 0.1
+          max: 500.0
+          step: 0.1
+          mode: box
+    date:
+      name: Height date
+      description: Height date in YYYY-MM-DD format
+      example: "2022-06-20"
+      selector:
+        text:
+    notes:
+      name: Height notes
+      description: Height notes
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      selector:
+        text:
+          multiline: true
+
+add_note:
+  name: Add note
+  description: Adds a note entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: sensor
+      device_class: babybuddy_child
+  fields:
+    note:
+      name: Note
+      description: Note text
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      required: true
+      selector:
+        text:
+          multiline: true
+    time:
+      name: Note time
+      description: Note time
+      example: "15:00:00"
+      selector:
+        time:
+
+add_pumping:
+  name: Add pumping
+  description: Adds a pumping entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: sensor
+      device_class: babybuddy_child
+  fields:
+    amount:
+      name: Pumping amount
+      description: Pumping amount
+      example: 1
+      required: true
+      selector:
+        number:
+          min: 0.1
+          max: 500.0
+          step: 0.1
+          mode: box
+    time:
+      name: Pumping time
+      description: Pumping time
+      example: "15:00:00"
+      selector:
+        time:
+    notes:
+      name: Pumping notes
+      description: Pumping notes
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      selector:
+        text:
+          multiline: true
+
+add_sleep:
+  name: Add sleep
+  description: Adds sleep entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: switch
+  fields:
+    timer:
+      name: Use timer
+      description: Use active timer to assign child/start/end
+      example: false
+      selector:
+        boolean:
+    start:
+      name: Sleep start time
+      description: Sleep start time
+      example: "15:00:00"
+      selector:
+        time:
+    end:
+      name: Sleep end time
+      description: Sleep end time
+      example: "15:10:00"
+      selector:
+        time:
+    notes:
+      name: Sleep notes
+      description: Sleep notes
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      selector:
+        text:
+          multiline: true
+
+add_temperature:
+  name: Add temperature
+  description: Adds a temperature entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: sensor
+      device_class: babybuddy_child
+  fields:
+    temperature:
+      name: Temperature
+      description: Temperature
+      example: 37.0
+      required: true
+      selector:
+        number:
+          min: 35.0
+          max: 150.0
+          step: 0.1
+          mode: box
+    time:
+      name: Temperature time
+      description: Temperature time
+      example: "15:00:00"
+      selector:
+        time:
+    notes:
+      name: Temperature notes
+      description: Temperature notes
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      selector:
+        text:
+          multiline: true
+
+add_tummy_time:
+  name: Add tummy time
+  description: Adds tummy time entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: switch
+  fields:
+    timer:
+      name: Use timer
+      description: Use active timer to assign child/start/end
+      example: false
+      selector:
+        boolean:
+    start:
+      name: Tummy Time start time
+      description: Tummy Time start time
+      example: "15:00:00"
+      selector:
+        time:
+    end:
+      name: Tummy Time end time
+      description: Tummy Time end time
+      example: "15:10:00"
+      selector:
+        time:
+    milestone:
+      name: Tummy Time milestone
+      description: Tummy Time milestone
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      selector:
+        text:
+          multiline: true
+
+add_weight:
+  name: Add weight
+  description: Adds a weight entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: sensor
+      device_class: babybuddy_child
+  fields:
+    weight:
+      name: Weight
+      description: Weight value
+      example: 5.0
+      required: true
+      selector:
+        number:
+          min: 0.1
+          max: 500.0
+          step: 0.1
+          mode: box
+    date:
+      name: Weight date
+      description: Weight date in YYYY-MM-DD format
+      example: "2022-06-20"
+      selector:
+        text:
+    notes:
+      name: Weight notes
+      description: Weight notes
+      example: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et blandit elit. Duis in varius eros. Morbi eleifend, nulla a.
+      selector:
+        text:
+          multiline: true
+
+delete_last_entry:
+  name: Delete last entry
+  description: Delete the last sensor entry
+  target:
+    entity:
+      integration: babybuddy
+      domain: sensor
+
+start_timer:
+  name: Start timer
+  description: Start a new timer
+  target:
+    entity:
+      integration: babybuddy
+      domain: switch
+  fields:
+    start:
+      name: Timer start time
+      description: Leave blank for a quick start
+      example: "15:00:00"
+      selector:
+        time:
+    name:
+      name: Timer name
+      description: Specify optional timer name
+      example: Timer name
+      selector:
+        text:

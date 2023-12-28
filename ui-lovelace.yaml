@@ -53,14 +53,14 @@ views:
       - type: horizontal-stack
         cards:
           - type: custom:mini-graph-card
-            name: Bedroom
+            name: Bedroom 1
             line_color: var(--accent-color)
             aggregate_func: last
             hour24: true
             entities:
             - sensor.temperature_bedroom_temperature
           - type: custom:mini-graph-card
-            name: Bedroom
+            name: Bedroom 1
             line_color: blue
             aggregate_func: last
             hour24: true
@@ -101,14 +101,14 @@ views:
       - type: horizontal-stack
         cards:
           - type: custom:mini-graph-card
-            name: Hallway
+            name: Bedroom 2
             line_color: var(--accent-color)
             aggregate_func: last
             hour24: true
             entities:
             - sensor.temperature_hallway_temperature
           - type: custom:mini-graph-card
-            name: Hallway
+            name: Bedroom 2
             line_color: blue
             aggregate_func: last
             hour24: true
