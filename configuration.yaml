@@ -1,5 +1,4 @@
 homeassistant:
-  legacy_templates: false
   name: Home
   latitude: !env_var HASS_SECRET_LATITUDE
   longitude: !env_var HASS_SECRET_LONGITUDE
