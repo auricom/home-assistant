@@ -29,7 +29,7 @@ home_cinema_audio_only_power_on:
   - service: media_player.turn_on
     data: {}
     target:
-      entity_id: media_player.RemuxRemux
+      entity_id: media_player.denon_avr_x1300w
 home_cinema_power_off:
   alias: Home Cinema Power OFF
   variables:
